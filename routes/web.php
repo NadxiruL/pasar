@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('layouts.dashboard');
+    return view('layouts.master');
 });
 
 Route::get('admin/test', function () {

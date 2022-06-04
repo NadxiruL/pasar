@@ -1,5 +1,3 @@
 @extends('layouts.master')
-@section('title', 'Index')
-@section('content')
-
-@endsection
+@extends('layouts.header')
+@extends('layouts.sidebar')
