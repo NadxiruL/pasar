@@ -1,6 +1,5 @@
 <header class="topbar" data-navbarbg="skin5">
     <base href="{{ \URL::to('/') }}">
-    @yield('header')
     <nav class="navbar top-navbar navbar-expand-md navbar-dark">
         <div class="navbar-header" data-logobg="skin6">
             <!-- ============================================================== -->
@@ -41,14 +40,14 @@
                 <!-- ============================================================== -->
                 <!-- Search -->
                 <!-- ============================================================== -->
-                <!--    <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3">
-                                <input type="text" placeholder="Search..." class="form-control mt-0">
-                                <a href="" class="active">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
-                        </li> -->
+                <li class=" in">
+                    <form role="search" class="app-search d-none d-md-block me-3">
+                        <input type="text" placeholder="Search..." class="form-control mt-0">
+                        <a href="" class="active">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </form>
+                </li>
                 <!-- ============================================================== -->
                 <!-- User profile and search -->
                 <!-- ============================================================== -->
