@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/test', function () {
-    return view('admin.index');
+//Users
+Route::group(['prefix' => '/'], function () {
+    Route::get('overview', function () {
+        return view('users.index');
+    });
+    Route::get('plans', function () {
+        return view('users.index');
+    });
 });

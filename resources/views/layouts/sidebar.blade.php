@@ -10,28 +10,28 @@
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
                         aria-expanded="false">
                         <i class="far fa-clock" aria-hidden="true"></i>
-                        <span class="hide-menu">Dashboard</span>
+                        <span class="hide-menu">Overview</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html"
                         aria-expanded="false">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <span class="hide-menu">Profile</span>
+                        <span class="hide-menu">Customers</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic-table.html"
                         aria-expanded="false">
-                        <i class="fa fa-table" aria-hidden="true"></i>
-                        <span class="hide-menu">Basic Table</span>
+                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        <span class="hide-menu">Products</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
                         aria-expanded="false">
-                        <i class="fa fa-font" aria-hidden="true"></i>
-                        <span class="hide-menu">Icon</span>
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                        <span class="hide-menu">Setting</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
