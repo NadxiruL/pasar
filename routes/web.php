@@ -21,8 +21,13 @@ Route::get('/', function () {
 Route::group(['prefix' => '/'], function () {
     Route::get('overview', function () {
         return view('users.index');
+
+    });
+
+//Plans
+    Route::group(['prefix' => '/'], function () {
     });
     Route::get('plans', function () {
-        return view('users.index');
+        return view('plans.packages');
     });
 });
