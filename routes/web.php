@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,15 +21,28 @@ Route::get('/', function () {
 
 //Users
 Route::group(['prefix' => '/'], function () {
-    Route::get('overview', function () {
-        return view('users.index');
-
-    });
+    // Route::resource('user', UserController::class);
+});
 
 //Plans
-    Route::group(['prefix' => '/'], function () {
-    });
+Route::group(['prefix' => '/'], function () {
     Route::get('plans', function () {
         return view('plans.packages');
     });
 });
+
+//Orders
+Route::group(['prefix' => '/'], function () {
+    Route::resource('order', OrderController::class);
+});
+
+//Products
+Route::group(['prefix' => '/'], function () {
+    Route::resource('product', ProductController::class);
+});
+
+//Customers
+
+//Inventory
+
+//Setting

@@ -14,14 +14,14 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html"
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('order.index') }}"
                         aria-expanded="false">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <span class="hide-menu">Customers</span>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="hide-menu">Orders</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic-table.html"
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('product.create') }}"
                         aria-expanded="false">
                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                         <span class="hide-menu">Products</span>
@@ -30,8 +30,8 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
                         aria-expanded="false">
-                        <i class="fa fa-cog" aria-hidden="true"></i>
-                        <span class="hide-menu">Setting</span>
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span class="hide-menu">Customers</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
