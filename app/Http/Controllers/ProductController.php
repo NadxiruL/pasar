@@ -34,6 +34,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+        //validate = validate([]);
+
         //$product = Product::create([]);
         //$product = new Product;
         //$product->name = $request->name
