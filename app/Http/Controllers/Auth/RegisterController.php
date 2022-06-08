@@ -21,9 +21,9 @@ class RegisterController extends Controller
     {
         //check information
         $validate = $request->validate([
-            'name' => ['required', 'unique'],
+            'name' => ['required', 'unique:users'],
             'email' => ['required', 'email'],
-            'password' => ['required', 'confirme'],
+            'password' => ['required', 'confirmed', 'min:6'],
         ]);
 
         //create user
@@ -33,7 +33,11 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        //todo lepas create buat apa
+        if ($user) {
+            return back()->with('success', 'User registered successfully!');
+        } else {
+            return back()->with('unsuccess', 'Registration failed !');
+        }
 
     }
 }
