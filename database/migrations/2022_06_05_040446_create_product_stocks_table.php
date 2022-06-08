@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('product_stocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Product::class);
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

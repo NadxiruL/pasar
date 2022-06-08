@@ -42,7 +42,9 @@ class ProductController extends Controller
         //$product->name = $request->name
         //$product->save();
 
-        if ($product->$request->id);
+        // /f ($product->$require_shipping == null ){
+        //     jadikan produk digital.
+        // }
     }
 
     /**

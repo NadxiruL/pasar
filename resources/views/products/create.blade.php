@@ -62,7 +62,7 @@
                             <div class="form-group mb-4">
                                 <div class="col-sm-4">
                                     <div class="float-left">
-                                        <button class="btn btn-success ">UpdateProfile</button>
+                                        <button class="btn btn-success ">Submit</button>
                                     </div>
                                 </div>
                             </div>
