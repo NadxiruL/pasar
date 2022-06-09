@@ -9,7 +9,7 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        //return view
+        return view('register');
     }
 
     public function create()
@@ -19,11 +19,13 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
+
         //check information
         $validate = $request->validate([
             'name' => ['required', 'unique:users'],
             'email' => ['required', 'email'],
             'password' => ['required', 'confirmed', 'min:6'],
+            'password_confirmation' => ['required', 'min:6'],
         ]);
 
         //create user

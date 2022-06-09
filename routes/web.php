@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+//Register
+Route::group(['prefix' => 'register'], function () {
+    Route::get('/', [RegisterController::class, 'index'])->name('register.index');
+    Route::post('/', [RegisterController::class, 'register'])->name('register.create');
 });
 
 //Users
