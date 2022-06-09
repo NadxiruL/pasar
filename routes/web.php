@@ -27,6 +27,7 @@ Route::post('signup', [RegisterController::class, 'register'])->name('sign_up.cr
 Route::get('login', [LoginController::class, 'index'])->name('sign_in.index');
 Route::post('login', [LoginController::class, 'login'])->name('sign_in.create');
 Route::get('/', [LoginController::class, 'logout'])->name('logout');
+Route::get('account/verify/{token}', [LoginController::class, 'verifyAccount'])->name('account.verify');
 
 //});
 
