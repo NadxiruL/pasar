@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,33 +19,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Register
-Route::group(['prefix' => 'register'], function () {
-    Route::get('/', [RegisterController::class, 'index'])->name('register.index');
-    Route::post('/', [RegisterController::class, 'register'])->name('register.create');
-});
+//Authentication
+//Route::group(['prefix' => ''], function () {
+Route::get('signup', [RegisterController::class, 'index'])->name('sign_up.index');
+Route::post('signup', [RegisterController::class, 'register'])->name('sign_up.create');
+Route::get('login', [LoginController::class, 'index'])->name('sign_in.index');
+Route::post('login', [LoginController::class, 'login'])->name('sign_in.create');
+
+//});
 
 //Users
-Route::group(['prefix' => '/'], function () {
-    // Route::resource('user', UserController::class);
-});
+// Route::group(['prefix' => '/'], function () {
+//     // Route::resource('user', UserController::class);
+// });
 
 //Plans
-Route::group(['prefix' => '/'], function () {
-    Route::get('plans', function () {
-        return view('plans.packages');
-    });
-});
+// Route::group(['prefix' => '/'], function () {
+//     Route::get('plans', function () {
+//         return view('plans.packages');
+//     });
+// });
 
 //Orders
-Route::group(['prefix' => '/'], function () {
-    Route::resource('order', OrderController::class);
-});
+// Route::group(['prefix' => '/'], function () {
+//     Route::resource('order', OrderController::class)->name('order.dashboard');
+// });
 
 //Products
-Route::group(['prefix' => '/'], function () {
-    Route::resource('product', ProductController::class);
-});
+// Route::group(['prefix' => '/'], function () {
+//     Route::resource('product', ProductController::class);
+// });
 
 //Customers
 

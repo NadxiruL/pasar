@@ -36,7 +36,7 @@
                     @endif
 
                     <div class="card-body">
-                        <form class=" form-material" method="POST" action="{{ route('register.create') }}">
+                        <form class=" form-material" method="POST" action="{{ route('sign_up.create') }}">
                             @csrf
                             <div class="form-group mb-4">
                                 <label class="col-md-12 p-0">Name</label>
@@ -83,13 +83,13 @@
                             </div>
 
                             <div class="form-group mb-4">
-                                <div class="col-md-4 float-right">
-                                    <button class="btn btn-success ">Sign Up</button>
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary ">Sign Up</button>
                                 </div>
-                                <p class="mt-4">Already have an account? Log in </p>
+                                <p class="mt-4">Already have an account? <a
+                                        href="{{ route('sign_in.create') }}">Log in </a> </p>
                             </div>
                         </form>
-
 
                     </div>
                 </div>

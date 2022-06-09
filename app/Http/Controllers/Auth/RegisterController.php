@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('register');
+        return view('sign_up');
     }
 
     public function create()
@@ -40,7 +40,7 @@ class RegisterController extends Controller
         if ($user) {
             return back()->with('success', 'User registered successfully!');
         } else {
-            return back()->with('unsuccess', 'Registration failed !');
+            return back()->with('unsuccess', 'Registration failed!');
         }
 
     }
