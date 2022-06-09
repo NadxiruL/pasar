@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::get('signup', [RegisterController::class, 'index'])->name('sign_up.index'
 Route::post('signup', [RegisterController::class, 'register'])->name('sign_up.create');
 Route::get('login', [LoginController::class, 'index'])->name('sign_in.index');
 Route::post('login', [LoginController::class, 'login'])->name('sign_in.create');
+Route::get('/', [LoginController::class, 'logout'])->name('logout');
 
 //});
 
@@ -42,13 +44,13 @@ Route::post('login', [LoginController::class, 'login'])->name('sign_in.create');
 
 //Orders
 // Route::group(['prefix' => '/'], function () {
-//     Route::resource('order', OrderController::class)->name('order.dashboard');
+//     Route::resource('order', OrderController::class)->;
 // });
 
 //Products
-// Route::group(['prefix' => '/'], function () {
-//     Route::resource('product', ProductController::class);
-// });
+Route::group(['prefix' => '/'], function () {
+    Route::resource('product', ProductController::class);
+});
 
 //Customers
 

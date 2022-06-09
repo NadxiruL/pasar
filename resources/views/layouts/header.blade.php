@@ -52,7 +52,7 @@
                 <!-- User profile and search -->
                 <!-- ============================================================== -->
                 <li>
-                    <a class="profile-pic" href="#">
+                    <a class="profile-pic" href="{{ route('logout') }}">
                         <img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><span
                             class="text-white font-medium">Steave</span></a>
                 </li>

@@ -13,6 +13,7 @@
                     <div class="card-body">
                         <form class="form-horizontal form-material">
                             <div class="form-group mb-4">
+                                <h6> hello {{ Auth::user()->name }}</h6>
                                 <label class="col-md-12 p-0">Name</label>
                                 <div class="col-md-12 border-bottom p-0">
                                     <input type="text" name="name" class="form-control p-0 border-0">

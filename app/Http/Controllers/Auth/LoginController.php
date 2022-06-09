@@ -24,16 +24,21 @@ class LoginController extends Controller
 
         // $credentials = $request->only('email', 'password');
         if (Auth::attempt($validate)) {
-            return redirect()->intended('order.dashboard');
+            return redirect()->intended('product/create');
         } else {
             return back()->with('unsuccess', 'Wrong credentials');
         }
 
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
 
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('login');
     }
 }
