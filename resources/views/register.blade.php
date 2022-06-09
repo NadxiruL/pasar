@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
-    <title>Document</title>
+    <title>Sign Up</title>
 </head>
 
 <body>
@@ -28,6 +28,13 @@
             <!-- Column -->
             <div class="col-md-4">
                 <div class="card mt-4">
+
+                    @if (session('success'))
+                        <h6 class="alert alert-success mt-2"> {{ session('success') }} </h6>
+                    @elseif(session('unsuccess'))
+                        <h6 class="alert alert-danger mt-2"> {{ session('unsuccess') }} </h6>
+                    @endif
+
                     <div class="card-body">
                         <form class=" form-material" method="POST" action="{{ route('register.create') }}">
                             @csrf
@@ -79,6 +86,7 @@
                                 <div class="col-md-4 float-right">
                                     <button class="btn btn-success ">Sign Up</button>
                                 </div>
+                                <p class="mt-4">Already have an account? Log in </p>
                             </div>
                         </form>
 
