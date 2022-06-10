@@ -31,6 +31,15 @@ Route::get('account/verify/{token}', [LoginController::class, 'verifyAccount'])-
 
 //});
 
+Route::get('email-test', function () {
+
+    $details['email'] = 'your_email@gmail.com';
+
+    dispatch(new App\Jobs\EmailVerifyJob($details));
+
+    dd('done');
+});
+
 //Users
 // Route::group(['prefix' => '/'], function () {
 //     // Route::resource('user', UserController::class);

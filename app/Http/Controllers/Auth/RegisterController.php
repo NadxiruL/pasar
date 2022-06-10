@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\EmailVerifyJob;
 use App\Models\User;
 use App\Models\UserVerify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class RegisterController extends Controller
@@ -46,10 +46,11 @@ class RegisterController extends Controller
             'token' => $token,
         ]);
 
-        Mail::send('emails.verify', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email);
-            $message->subject('Email Verification Mail');
-        });
+        dispatch(new EmailVerifyJob($token));
+        // Mail::send('emails.verify', ['token' => $token], function ($message) use ($request) {
+        //     $message->to($request->email);
+        //     $message->subject('Email Verification Mail');
+        // });
 
         if ($user) {
             return back()->with('success', 'User registered successfully!');

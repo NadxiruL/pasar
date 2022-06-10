@@ -57,6 +57,6 @@ class LoginController extends Controller
                 $message = "Your e-mail is already verified. You can now login.";
             }
         }
-        return redirect()->route('login')->with('message', $message);
+        return redirect()->route('sign_in.index')->with('message', $message);
     }
 }
