@@ -8,7 +8,7 @@
 
             <!-- Column -->
             <!-- Column -->
-            <div class="col-lg-8">
+            <div class="col-12 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <form class="form-horizontal form-material">

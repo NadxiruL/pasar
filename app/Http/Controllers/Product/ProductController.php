@@ -36,15 +36,22 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+        dd($request);
         //validate = validate([]);
 
-        //$product = Product::create([]);
-        //$product = new Product;
-        //$product->name = $request->name
-        //$product->save();
+        $product = Product::create([
+            'user_id' => Auth::user()->id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'slug' => Str::random(10),
+            'price' => $request->price,
+        ]);
 
-        // /f ($product->$require_shipping == null ){
-        //     jadikan produk digital.
+        //digital product
+        //if ($request->has('digital')){
+        //$digitalProduct = Product::Create([
+
+        //])
         // }
 
         // $validate = $request->validate([

@@ -11,7 +11,8 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal form-material">
+                        <form class="form-horizontal form-material" method="POST" action="{{ route('product.store') }}">
+                            @csrf
                             <div class="form-group mb-4">
                                 <label class="col-md-12 p-0">Name</label>
                                 <div class="col-md-12">

@@ -7,7 +7,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
 
 class EmailVerifyJob implements ShouldQueue
 {
@@ -36,10 +35,10 @@ class EmailVerifyJob implements ShouldQueue
         // $email = new VerifyEmail();
         // Mail::to($this->details['email'])->send($email);
 
-        Mail::send('emails.verify', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email);
-            $message->subject('Email Verification Mail');
-        });
+        // Mail::send('emails.verify', ['token' => $token], function ($message) use ($request) {
+        //     $message->to($request->email);
+        //     $message->subject('Email Verification Mail');
+        // });
 
         // Mail::to('yo@mail.com')->send(new VerifyEmail());
 
