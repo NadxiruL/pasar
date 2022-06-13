@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Storefront;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class StoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -23,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('storefront.create');
     }
 
     /**
@@ -34,25 +35,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
-        //validate = validate([]);
-
-        //$product = Product::create([]);
-        //$product = new Product;
-        //$product->name = $request->name
-        //$product->save();
-
-        // /f ($product->$require_shipping == null ){
-        //     jadikan produk digital.
-        // }
-
-        // $validate = $request->validate([
-
-        // ]);
-
-        // $product = Product::create([
-
-        // ]);
+        //
     }
 
     /**

@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Storefront\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +58,11 @@ Route::group(['prefix' => '/'], function () {
 //Category
 Route::group(['prefix' => '/'], function () {
     Route::resource('category', CategoryController::class);
+});
+
+//Store
+Route::group(['prefix' => '/'], function () {
+    Route::resource('store', StoreController::class);
 });
 
 //Customers

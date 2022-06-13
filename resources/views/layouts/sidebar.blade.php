@@ -41,10 +41,10 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.html"
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('store.create') }}"
                         aria-expanded="false">
-                        <i class="fa fa-columns" aria-hidden="true"></i>
-                        <span class="hide-menu">Blank Page</span>
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                        <span class="hide-menu">My Store</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

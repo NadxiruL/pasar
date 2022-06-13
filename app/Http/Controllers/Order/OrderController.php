@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Order;
 
-use App\Models\Category;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('orders.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        //
     }
 
     /**
@@ -35,21 +35,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
-        // $validate = $request->validate([
-        //     'name' => ['required', 'unique:categories,name'],
-        // ]);
-
-        $category = Category::create([
-            'name' => $request->category,
-        ]);
-
-        if ($category) {
-            return redirect()->back()->with('success', 'category added');
-        } else {
-            return redirect()->back()->with('unsuccess', 'category not added');
-        }
-
+        //
     }
 
     /**
