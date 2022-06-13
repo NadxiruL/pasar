@@ -15,6 +15,12 @@
 <body>
     <div id="app">
         <example-component> </example-component>
+
+        @foreach ($categories as $category)
+            {{ $category['name'] }}
+        @endforeach
+
+
     </div>
 </body>
 <script src="{{ mix('js/app.js') }}"></script>

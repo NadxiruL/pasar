@@ -18,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/products', function () {
-    return view('products.index');
-});
+// Route::get('/view', function () {
+
+//     $categories = Category::all();
+
+//     return view('welcome', [
+//         'categories' => $categories,
+//     ]);
+// });
 
 //Authentication
 //Route::group(['prefix' => ''], function () {

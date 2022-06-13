@@ -16,8 +16,9 @@
         </thead>
         <tbody>
             <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
+                @foreach ($categories as $category)
+                    <td>{{ $category->name }}</td>
+                @endforeach
             </tr>
             <tr>
                 <td>Row 2 Data 1</td>

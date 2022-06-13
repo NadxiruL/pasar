@@ -8,6 +8,7 @@
 
             <!-- Column -->
             <!-- Column -->
+
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
@@ -41,11 +42,9 @@
                                 <label class="col-sm-12">Categories</label>
                                 <div class="col-sm-12">
                                     <select name="category_id" class="form-select shadow-none form-control-line">
-                                        <option>London</option>
-                                        <option>India</option>
-                                        <option>Usa</option>
-                                        <option>Canada</option>
-                                        <option>Thailand</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
