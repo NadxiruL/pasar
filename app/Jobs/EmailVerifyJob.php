@@ -19,11 +19,11 @@ class EmailVerifyJob implements ShouldQueue
      * @return void
      */
 
-    public $token;
+    // public $token;
 
-    public function __construct($token)
+    public function __construct()
     {
-        $this->token = $token;
+        // $this->token = $token;
     }
 
     /**
@@ -36,7 +36,7 @@ class EmailVerifyJob implements ShouldQueue
         // $email = new VerifyEmail();
         // Mail::to($this->details['email'])->send($email);
 
-        Mail::send('emails.verify', ['token' => $this->$token], function ($message) use ($request) {
+        Mail::send('emails.verify', ['token' => $token], function ($message) use ($request) {
             $message->to($request->email);
             $message->subject('Email Verification Mail');
         });

@@ -13,35 +13,33 @@
                     <div class="card-body">
                         <form class="form-horizontal form-material">
                             <div class="form-group mb-4">
-                                <h6> hello {{ Auth::user()->name }}</h6>
                                 <label class="col-md-12 p-0">Name</label>
-                                <div class="col-md-12 border-bottom p-0">
-                                    <input type="text" name="name" class="form-control p-0 border-0">
+                                <div class="col-md-12">
+                                    <input type="text" name="name" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
                                 <label class="col-md-12 p-0">Description</label>
-                                <div class="col-md-12 border-bottom p-0">
-                                    <textarea rows="5" name="description" class="form-control p-0 border-0"></textarea>
+                                <div class="col-md-12">
+                                    <textarea rows="5" name="description" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group mb-4">
                                 <label class="col-md-12 p-0">Price</label>
                                 <div class="col-md-12 border-bottom p-0">
-                                    <input type="text" name="price" class="form-control p-0 border-0">
+                                    <input type="text" name="price" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
                                 <label class="col-md-12 p-0">Stock</label>
                                 <div class="col-sm-4 border-bottom p-0">
-                                    <input type="text" name="stock" class="form-control p-0 border-0">
+                                    <input type="text" name="stock" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
                                 <label class="col-sm-12">Categories</label>
-                                <div class="col-sm-12 border-bottom">
-                                    <select name="category_id"
-                                        class="form-select shadow-none p-0 border-0 form-control-line">
+                                <div class="col-sm-12">
+                                    <select name="category_id" class="form-select shadow-none form-control-line">
                                         <option>London</option>
                                         <option>India</option>
                                         <option>Usa</option>

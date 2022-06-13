@@ -5,23 +5,24 @@
 
     <div class="container-fluid">
         <!-- Row -->
-        <div class="row">
+        <div class="row justify-content-center">
 
             <!-- Column -->
             <!-- Column -->
-            <div class="col-lg-8 col-xlg-9 col-md-12">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal form-material">
+                        <form class="form-horizontal form-material" method="POST" action="{{ route('category.store') }}">
+                            @csrf
                             <div class="form-group mb-4">
                                 <label class="col-md-12 p-0">Category</label>
-                                <div class="col-md-12 border-bottom p-0">
-                                    <input type="text" name="category" class="form-control p-0 border-0">
+                                <div class="col-md-12">
+                                    <input type="text" name="category" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-success">Submit</button>
+                                    <button class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>

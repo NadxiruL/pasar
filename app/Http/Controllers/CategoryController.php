@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -23,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('categories.create');
     }
 
     /**
@@ -35,24 +36,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        //validate = validate([]);
-
-        //$product = Product::create([]);
-        //$product = new Product;
-        //$product->name = $request->name
-        //$product->save();
-
-        // /f ($product->$require_shipping == null ){
-        //     jadikan produk digital.
-        // }
-
         // $validate = $request->validate([
-
+        //     'name' => ['required', 'unique:categories,name'],
         // ]);
 
-        // $product = Product::create([
+        $category = Category::create([
+            'name' => $request->category,
+        ]);
 
-        // ]);
+        if ($category) {
+            return redirect()->back()->with('success', 'category added');
+        } else {
+            return redirect()->back()->with('unsuccess', 'category not added');
+        }
+
     }
 
     /**

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,15 +32,6 @@ Route::get('account/verify/{token}', [LoginController::class, 'verifyAccount'])-
 
 //});
 
-Route::get('email-test', function () {
-
-    $details['email'] = 'your_email@gmail.com';
-
-    dispatch(new App\Jobs\EmailVerifyJob($details));
-
-    dd('done');
-});
-
 //Users
 // Route::group(['prefix' => '/'], function () {
 //     // Route::resource('user', UserController::class);
@@ -60,6 +52,11 @@ Route::get('email-test', function () {
 //Products
 Route::group(['prefix' => '/'], function () {
     Route::resource('product', ProductController::class);
+});
+
+//Category
+Route::group(['prefix' => '/'], function () {
+    Route::resource('category', CategoryController::class);
 });
 
 //Customers
