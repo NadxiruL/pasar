@@ -19,6 +19,11 @@ class ProductController extends Controller
     public function index()
     {
 
+        $products = Product::all();
+
+        return view('products.index', [
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -46,6 +51,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         // dd($request);
+        // code masih boleh dipendekkan.
         if (!$request->digital) {
             //physical product
             $product = Product::create([
@@ -81,6 +87,7 @@ class ProductController extends Controller
                 $digitalProduct->Stock()->create([
                     'quantity' => $request->stock,
                 ]);
+
                 return redirect()->back()->with('digital_product', 'digital product successfully created!');
             }
 

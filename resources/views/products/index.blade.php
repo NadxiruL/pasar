@@ -3,33 +3,50 @@
 @section('page_title', 'Products')
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Basic Table</h3>
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+                    <div class="table-responsive">
+                        <table class="table text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">#</th>
+                                    <th class="border-top-0">First Name</th>
+                                    <th class="border-top-0">Last Name</th>
+                                    <th class="border-top-0">Status</th>
+                                    <th class="border-top-0">Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($products as $product)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $product->name }}</td>
+                                        <td><button>Edit</button></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
 
-    <table id="table_id" class="display">
-        <thead>
-            <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                @foreach ($categories as $category)
-                    <td>{{ $category->name }}</td>
-                @endforeach
-            </tr>
-            <tr>
-                <td>Row 2 Data 1</td>
-                <td>Row 2 Data 2</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <script>
-        $(document).ready(function() {
-            $('#table_id').DataTable();
-        });
-    </script>
 @endsection
