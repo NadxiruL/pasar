@@ -27,12 +27,14 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
+Auth::routes();
+
 //Authentication
 //Route::group(['prefix' => ''], function () {
 Route::get('signup', [RegisterController::class, 'index'])->name('sign_up.index');
 Route::post('signup', [RegisterController::class, 'register'])->name('sign_up.create');
 Route::get('login', [LoginController::class, 'index'])->name('sign_in.index');
-Route::post('login', [LoginController::class, 'login'])->name('sign_in.create');
+Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('/', [LoginController::class, 'logout'])->name('logout');
 Route::get('account/verify/{token}', [LoginController::class, 'verifyAccount'])->name('account.verify');
 
@@ -56,17 +58,17 @@ Route::get('account/verify/{token}', [LoginController::class, 'verifyAccount'])-
 // });
 
 //Products
-Route::group(['prefix' => '/'], function () {
+Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::resource('product', ProductController::class);
 });
 
 //Category
-Route::group(['prefix' => '/'], function () {
+Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::resource('category', CategoryController::class);
 });
 
 //Store
-Route::group(['prefix' => '/'], function () {
+Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::resource('store', StoreController::class);
 });
 

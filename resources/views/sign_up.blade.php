@@ -86,8 +86,8 @@
                                 <div class="col-md-4">
                                     <button class="btn btn-primary ">Sign Up</button>
                                 </div>
-                                <p class="mt-4">Already have an account? <a
-                                        href="{{ route('sign_in.create') }}">Log in </a> </p>
+                                <p class="mt-4">Already have an account? <a href="{{ route('login') }}">Log
+                                        in </a> </p>
                             </div>
                         </form>
 

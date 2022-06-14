@@ -32,7 +32,6 @@ class ProductController extends Controller
             'categories' => $categories,
         ]);
 
-        return view('products.create');
     }
 
     /**
@@ -44,45 +43,33 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        //validate = validate([]);
-
         //physical product
         $product = Product::create([
             'user_id' => Auth::user()->id,
             'name' => $request->name,
             'description' => $request->description,
-            'slug' => Str::random(10),
+            'slug' => Str::random(5),
             'price' => $request->price,
         ]);
 
         //digital product
         if ($request->has('digital')) {
-
             $digitalProduct = Product::Create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
                 'description' => $request->description,
-                'slug' => Str::random(10),
+                'slug' => Str::random(5),
                 'price' => $request->price,
             ]);
-
         }
 
         if ($product) {
             return redirect()->back()->with('success', 'product successfully created!');
         } elseif ($digitalProduct) {
-            return redirect()->back()->with('success_digital', 'digital product successfully created!');
+            return redirect()->back()->with('success', 'digital product successfully created!');
         } else {
-            redirect()->back()->with('unsuccess', 'product is not created!');
+            return redirect()->back()->with('unsuccess', 'product is not created!');
         }
-
-        // $validate = $request->validate([
-
-        // ]);
-
-        // $product = Product::create([
-
-        // ]);
     }
 
     /**

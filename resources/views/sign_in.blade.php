@@ -36,7 +36,7 @@
                     @endif
 
                     <div class="card-body">
-                        <form class=" form-material" method="POST" action="{{ route('sign_in.create') }}">
+                        <form class=" form-material" method="POST" action="{{ route('login') }}">
                             @csrf
 
                             <div class="form-group mb-4">
