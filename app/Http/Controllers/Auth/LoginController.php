@@ -25,7 +25,7 @@ class LoginController extends Controller
 
         // $credentials = $request->only('email', 'password');
         if (Auth::attempt($validate)) {
-            return redirect()->intended('product/create');
+            return redirect()->intended('/product/create');
         } else {
             return back()->with('unsuccess', 'Wrong credentials');
         }

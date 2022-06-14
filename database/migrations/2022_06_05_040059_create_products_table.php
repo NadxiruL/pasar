@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->text('description');
+            $table->string('product_type');
             $table->foreignIdFor(Category::class);
             $table->foreignIdFor(User::class);
             $table->timestamps();

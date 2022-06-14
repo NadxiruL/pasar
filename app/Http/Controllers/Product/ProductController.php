@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -42,33 +45,45 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
-        //physical product
-        $product = Product::create([
-            'user_id' => Auth::user()->id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'slug' => Str::random(5),
-            'price' => $request->price,
-        ]);
-
-        //digital product
-        if ($request->has('digital')) {
-            $digitalProduct = Product::Create([
+        // dd($request);
+        if (!$request->digital) {
+            //physical product
+            $product = Product::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
                 'description' => $request->description,
-                'slug' => Str::random(5),
+                'slug' => Str::random(7),
                 'price' => $request->price,
+                'category_id' => $request->category_id,
+                'product_type' => 'physical',
             ]);
-        }
 
-        if ($product) {
-            return redirect()->back()->with('success', 'product successfully created!');
-        } elseif ($digitalProduct) {
-            return redirect()->back()->with('success', 'digital product successfully created!');
+            $product->stock()->create([
+                'quantity' => $request->stock,
+            ]);
+
+            return redirect()->back()->with('physical_product', 'product successfully created!');
+
         } else {
-            return redirect()->back()->with('unsuccess', 'product is not created!');
+
+            //digital product
+            if ($request->has('digital')) {
+                $digitalProduct = Product::create([
+                    'user_id' => Auth::user()->id,
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'slug' => Str::random(7),
+                    'price' => $request->price,
+                    'category_id' => $request->category_id,
+                    'product_type' => 'digital',
+                ]);
+
+                $digitalProduct->Stock()->create([
+                    'quantity' => $request->stock,
+                ]);
+                return redirect()->back()->with('digital_product', 'digital product successfully created!');
+            }
+
         }
     }
 

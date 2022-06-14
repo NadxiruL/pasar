@@ -11,6 +11,13 @@
 
             <div class="col-lg-8">
                 <div class="card">
+                    @if (session('physical_product'))
+                        <h6 class="alert alert-success mt-2"> {{ session('physical_product') }} </h6>
+                    @elseif(session('digital_product'))
+                        <h6 class="alert alert-success mt-2"> {{ session('digital_product') }} </h6>
+                    @elseif (session('unsuccess'))
+                        <h6 class="alert alert-danger mt-2"> {{ session('unsuccess') }} </h6>
+                    @endif
                     <div class="card-body">
                         <form class="form-horizontal form-material" method="POST" action="{{ route('product.store') }}">
                             @csrf
@@ -52,9 +59,9 @@
                             <!-- Default switch -->
                             <div class="form-group mb-4">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch"
-                                        id="flexSwitchCheckChecked" checked />
-                                    <label class="form-check-label" for="flexSwitchCheckChecked">Require Shipping</label>
+                                    <input class="form-check-input" type="checkbox" name="digital" role="switch"
+                                        id="flexSwitchCheckChecked" />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">Digital Product</label>
                                 </div>
                             </div>
 
