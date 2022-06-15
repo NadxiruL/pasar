@@ -48,6 +48,13 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('kedai.index') }}"
+                        aria-expanded="false">
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                        <span class="hide-menu">View Website</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="404.html" aria-expanded="false">
                         <i class="fa fa-cog" aria-hidden="true"></i>
                         <span class="hide-menu">Settings</span>

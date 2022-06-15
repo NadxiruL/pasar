@@ -1,65 +1,51 @@
-<div class="container-fluid">
-    <!-- Row -->
-    <div class="row justify-content-center">
+<!DOCTYPE html>
+<html lang="en">
 
-        <!-- Column -->
-        <!-- Column -->
-        <div class="col-12 col-md-6">
-            <div class="card">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        @foreach ($products as $product)
+            <div class="card mt-4" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
-                    <form class="form-horizontal form-material">
-                        <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Name</label>
-                            <div class="col-md-12">
-                                <input type="text" name="name" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Description</label>
-                            <div class="col-md-12">
-                                <textarea rows="5" name="description" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Price</label>
-                            <div class="col-md-12 border-bottom p-0">
-                                <input type="text" name="price" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Stock</label>
-                            <div class="col-sm-4 border-bottom p-0">
-                                <input type="text" name="stock" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
-                            <label class="col-sm-12">Categories</label>
-                            <div class="col-sm-12">
-                                <select name="category_id" class="form-select shadow-none form-control-line">
-                                    <option>London</option>
-                                    <option>India</option>
-                                    <option>Usa</option>
-                                    <option>Canada</option>
-                                    <option>Thailand</option>
-                                </select>
-                            </div>
-                        </div>
+                    <h5 class="card-title">{{ $product->name }}</h5>
+                    <p class="card-text">{{ $product->description }}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        @endforeach
+    </div>
 
-                        <!-- Default switch -->
-                        <div class="form-group mb-4">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch"
-                                    id="flexSwitchCheckChecked" checked />
-                                <label class="form-check-label" for="flexSwitchCheckChecked">Require Shipping</label>
-                            </div>
-                        </div>
+    <div class="container">
+        <!-- Row -->
 
+        <div class="colum">
 
-                    </form>
+            <div class="card mt-4" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
-        <!-- Column -->
     </div>
+</body>
 
-</div>
+</html>

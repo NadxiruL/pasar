@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Storefront;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class StoreFrontController extends Controller
+class ResetPasswordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +14,7 @@ class StoreFrontController extends Controller
      */
     public function index()
     {
-
-        $products = Product::where('user_id', Auth::user()->id)->first();
-
-        return view('storefront.index', [
-            'products' => $products,
-        ]);
+        //
     }
 
     /**
@@ -31,7 +24,7 @@ class StoreFrontController extends Controller
      */
     public function create()
     {
-        return view('storefront.create');
+        //
     }
 
     /**
