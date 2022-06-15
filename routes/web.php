@@ -4,7 +4,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Product\ProductController;
-use App\Http\Controllers\Storefront\StoreController;
+use App\Http\Controllers\Storefront\StoreFrontController;
+use App\Http\Controllers\Store\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,6 +71,11 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
 //Store
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     Route::resource('store', StoreController::class);
+});
+
+//StoreFront
+Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
+    Route::resource('/kedai', StoreFrontController::class);
 });
 
 //Customers

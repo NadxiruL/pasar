@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Storefront;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class StoreFrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,10 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
+
+        //$products = Product::all();
+
+        return view('storefront.index');
     }
 
     /**
