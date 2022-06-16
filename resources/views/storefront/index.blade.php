@@ -15,19 +15,27 @@
     <title>Document</title>
 </head>
 
+
 <body>
 
     <div class="container">
-        @foreach ($products as $product)
-            <div class="card mt-4" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $product->name }}</h5>
-                    <p class="card-text">{{ $product->description }}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        @endforeach
+        <div class="row">
+            @foreach ($products as $product)
+                <div class="col-3">
+                    <div class="card mt-4" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $product->name ?? '' }}</h5>
+                            <p class="card-text">{{ $product->description ?? '' }}</p>
+                            <form action="">
+
+                            </form>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+            @endforeach
+        </div>
+    </div>
     </div>
 
     <div class="container">

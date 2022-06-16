@@ -3,6 +3,8 @@
 @section('page_title', 'Products')
 @section('content')
 
+
+
     <div class="container-fluid">
         <!-- ============================================================== -->
         <!-- Start Page Content -->
@@ -10,17 +12,17 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="white-box">
-                    <h3 class="box-title">Basic Table</h3>
+                    <a href="{{ route('product.create') }}"> <button class="btn btn-primary">Add Product</button></a>
+                    <h3 class="box-title mt-2">Basic Table</h3>
 
                     <div class="table-responsive">
                         <table class="table text-nowrap">
                             <thead>
                                 <tr>
                                     <th class="border-top-0">#</th>
-                                    <th class="border-top-0">First Name</th>
-                                    <th class="border-top-0">Last Name</th>
-                                    <th class="border-top-0">Status</th>
-                                    <th class="border-top-0">Role</th>
+                                    <th class="border-top-0">Name</th>
+                                    <th class="border-top-0">Stock</th>
+                                    <th class="border-top-0"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,6 +30,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $product->name }}</td>
+                                        <td>{{ optional($product->stock)->quantity }}</td>
                                         <td><button>Edit</button></td>
                                     </tr>
                                 @endforeach

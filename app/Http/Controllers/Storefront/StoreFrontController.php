@@ -17,7 +17,11 @@ class StoreFrontController extends Controller
     public function index()
     {
 
-        $products = Product::where('user_id', Auth::user()->id)->first();
+        $products = Product::where('user_id', Auth::user()->id)
+            ->orderBy('id', 'ASC')
+            ->paginate(9);
+
+        // dd($products);
 
         return view('storefront.index', [
             'products' => $products,

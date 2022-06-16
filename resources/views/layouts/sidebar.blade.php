@@ -20,7 +20,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('product.create') }}"
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('product.index') }}"
                         aria-expanded="false">
                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                         <span class="hide-menu">Products</span>
