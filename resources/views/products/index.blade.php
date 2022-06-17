@@ -30,7 +30,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $product->name }}</td>
-                                        <td>{{ optional($product->stock)->quantity }}</td>
+                                        <td>{{ $product->stock }}</td>
                                         <td><button>Edit</button></td>
                                     </tr>
                                 @endforeach
