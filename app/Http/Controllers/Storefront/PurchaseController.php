@@ -9,6 +9,10 @@ class PurchaseController extends Controller
 {
     public function purchase(Request $request)
     {
-
+        $purchase = Purchase::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantitiy' => $request->quantity,
+        ]);
     }
 }

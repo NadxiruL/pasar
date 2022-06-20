@@ -19,6 +19,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->nullable();
+            $table->integer('price');
             $table->text('description');
             $table->string('product_type');
             $table->foreignIdFor(Category::class);

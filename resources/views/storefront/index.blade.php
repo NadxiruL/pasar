@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
+
     <title>Document</title>
 </head>
 
@@ -20,7 +19,7 @@
 
     <div>
         <!-- Row -->
-        <nav class="container navbar bg-primary col-sm-6 rounded ">
+        <nav class="container navbar bg-light col-sm-6 rounded mt-2">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
@@ -29,48 +28,193 @@
         </nav>
     </div>
 
-
-    <div class="container bg-primary mt-4 col-sm-6 rounded">
-        <!-- Row -->
-        <p class="mx-auto">test</p>
-    </div>
-
-    <div class="container bg-primary col-sm-6 mt-4 rounded">
+    <div class="container bg-light col-sm-6 mt-4 rounded">
 
         <div class="row justify-content-center">
             @foreach ($products as $product)
-                <div class="col-md-3 ">
+            <div class="col-md-3 p-3 ">
 
-                    <div>
-                        <div class="card mt-4 mb-3" style="width: 14rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $product->name ?? '' }}</h5>
-                                <p class="card-text">{{ $product->description ?? '' }}</p>
+                <div>
+                    <div class="card mt-4 mb-3 p-3" style="width: 14rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $product->name ?? '' }}</h5>
+                            <p class="card-text">{{ $product->description ?? '' }}</p>
+
+                            <div class="container ">
                                 <form action="" method="POST">
                                     @csrf
+                                    <input type="hidden" name="product_id" {{ $product->id }}>
+                                    <input type="hidden" name="product_id" {{ $product->price }}>
+                                    <div style="display: flex;">
+                                        <button class="btn btn-primary">Buy</button>
+                                    </div>
 
-                                    <button class="btn btn-primary"> Buy </button>
-                                </form>
-                                <div style ="float: right"></div>
-                                <form action="" method="POST">
-                                    @csrf
-
-                                    <button class="btn btn-primary"> Add to Cart </button>
                                 </form>
                             </div>
-                        </div>
 
+
+                        </div>
                     </div>
 
                 </div>
+
+
+
+            </div>
             @endforeach
         </div>
     </div>
 
-    <div class="container navbar-light">
-        <footer class=" col-sm-6 bg-primay"> YES</footer>
+
+    <!-- Billing details -->
+
+    <div class="container bg-light col-sm-6 mt-4 rounded">
+
+        <div class="row justify-content-center">
+
+            <h4 class="mt-2">Billing details</h4>
+
+            <div class="col-12 col-md-6">
+                <form action="">
+                    <div class="row mt-2">
+                        <div class="col-6 col-md-6">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control" required="" name="city" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6">
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input class="form-control" required="" name="zip" type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 col-md-12">
+                            <div class="form-group">
+                                <label>Address 1</label>
+                                <input class="form-control" required="" name="city" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-12">
+                            <div class="form-group">
+                                <label>Address 2</label>
+                                <input class="form-control" required="" name="zip" type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 col-md-6">
+                            <div class="form-group ">
+                                <label>City</label>
+                                <input class="form-control" required="" name="city" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6">
+                            <div class="form-group">
+                                <label>State</label>
+                                <input class="form-control" required="" name="zip" type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-6 col-md-12">
+                            <div class="form-group mb-3">
+                                <label>Email</label>
+                                <input class="form-control" required="" name="city" type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
     </div>
+
+
+    <!-- cart -->
+
+    <div class="container bg-light col-sm-6 mt-4 rounded">
+
+        <div class="row justify-content-center">
+
+            <h4 class="mt-2">Cart</h4>
+
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th> Quantity </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>abu</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment -->
+
+    <div class="container bg-light col-sm-6 mt-4 rounded">
+
+        <div class="row justify-content-center">
+
+            <h4 class="mt-2">Payment</h4>
+
+            <div class="container">
+                <label for="">Direct Transfer</label>
+                <input type="checkbox" name="" id="">
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
 </body>
+
+
 
 </html>

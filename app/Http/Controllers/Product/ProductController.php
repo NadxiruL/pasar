@@ -84,7 +84,7 @@ class ProductController extends Controller
                     'product_type' => 'digital',
                 ]);
 
-                $digitalProduct->Stock()->create([
+                $digitalProduct->stock()->create([
                     'quantity' => $request->stock,
                 ]);
 
