@@ -30,7 +30,7 @@
 
     <div class="container bg-light col-sm-6 mt-4 rounded">
 
-        <div class="row justify-content-center">
+        <div class="row p-4">
             @foreach ($products as $product)
             <div class="col-md-3 p-3 ">
 
@@ -39,28 +39,25 @@
                         <img class="card-img-top" src="..." alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name ?? '' }}</h5>
-                            <p class="card-text">{{ $product->description ?? '' }}</p>
+                            <p class="card-text">{{ $product->description ?? ''  }}</p>
 
                             <div class="container ">
-                                <form action="" method="POST">
+                                <form action="{{ route('cart.store') }}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="product_id" {{ $product->id }}>
-                                    <input type="hidden" name="product_id" {{ $product->price }}>
-                                    <div style="display: flex;">
-                                        <button class="btn btn-primary">Buy</button>
-                                    </div>
+                                    <input type="hidden" name="product_id" value="{{$product->id }}">
 
+                                    <input type="hidden" name="product_price" value="{{$product->price }}">
+
+                                    <input class="col-sm-4" type="number" name="quantity" {{ $product->quantity }}>
+
+                                    <div style="display: flex;">
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
                                 </form>
                             </div>
-
-
                         </div>
                     </div>
-
                 </div>
-
-
-
             </div>
             @endforeach
         </div>
@@ -69,7 +66,7 @@
 
     <!-- Billing details -->
 
-    <div class="container bg-light col-sm-6 mt-4 rounded">
+    {{-- <div class="container bg-light col-sm-6 mt-4 rounded">
 
         <div class="row justify-content-center">
 
@@ -136,7 +133,7 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 
 
     <!-- cart -->
@@ -151,15 +148,18 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th> Quantity </th>
+                            <th>Product</th>
+                            <th>Quantity </th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <tr>
-                            <td>abu</td>
-                            <td>10</td>
+                            {{-- @foreach ($carts as $cart)
+                            <td>{{ $cart->product_price }}</td>
+
+                            @endforeach --}}
+
                         </tr>
                     </tbody>
                 </table>
@@ -175,7 +175,7 @@
 
             <h4 class="mt-2">Payment</h4>
 
-            <div class="container">
+            <div display="flex" class="container">
                 <label for="">Direct Transfer</label>
                 <input type="checkbox" name="" id="">
             </div>
@@ -185,32 +185,6 @@
 
 
     </div>
-
-
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
 
 
 </body>
