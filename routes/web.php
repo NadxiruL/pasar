@@ -75,14 +75,16 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
 });
 
 //StoreFront
-Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
-    Route::resource('/kedai', StoreFrontController::class);
-});
+// Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
+Route::resource('/kedai', StoreFrontController::class);
+Route::post('/kedai', [CartController::class, 'addtoCart'])->name('cart.store');
+// });
 
-Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
-    //Route::get('/kedai', [CartController::class, 'cart'])->name('cart.cart');
-    Route::post('/kedai', [CartController::class, 'addtoCart'])->name('cart.store');
-});
+// Route::get('/kedaiz', [CartController::class, 'cart'])->name('cart.cart');
+
+// Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
+
+// });
 
 //Customers
 

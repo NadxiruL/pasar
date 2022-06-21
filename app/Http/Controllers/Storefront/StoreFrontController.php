@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Storefront;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,10 +15,14 @@ class StoreFrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $products = Product::where('user_id', Auth::user()->id)
+        $carts = Cart::select('product_id')
+            ->where('user_id', Auth::user()->id ?? '')
+            ->count();
+
+        $products = Product::where('user_id', Auth::user()->id ?? '')
             ->orderBy('id', 'ASC')
             ->paginate(9);
 
@@ -25,6 +30,7 @@ class StoreFrontController extends Controller
 
         return view('storefront.index', [
             'products' => $products,
+            'carts' => $carts,
         ]);
     }
 

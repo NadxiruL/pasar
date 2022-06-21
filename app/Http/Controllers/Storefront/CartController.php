@@ -12,11 +12,11 @@ class CartController extends Controller
     public function cart()
     {
         //display add to cart from db or session
-        $carts = Cart::all();
+        // $carts = Cart::all();
 
-        return view('storefront.index', [
-            'carts' => $carts,
-        ]);
+        // return view('storefront.index', [
+        //     'carts' => $carts,
+        // ]);
     }
 
     public function addtoCart(Request $request)

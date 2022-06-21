@@ -154,13 +154,14 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            {{-- @foreach ($carts as $cart)
-                            <td>{{ $cart->product_price }}</td>
+                        {{-- @foreach ($carts as $cart) --}}
 
-                            @endforeach --}}
+                        <tr>
+                            <td>{{ $carts }}</td>
 
                         </tr>
+                        {{-- @endforeach --}}
+
                     </tbody>
                 </table>
             </div>
@@ -180,9 +181,6 @@
                 <input type="checkbox" name="" id="">
             </div>
         </div>
-
-
-
 
     </div>
 
