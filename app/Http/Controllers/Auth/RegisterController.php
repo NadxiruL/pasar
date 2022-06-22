@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Store\DomainController;
 use App\Jobs\EmailVerifyJob;
 use App\Models\User;
 use App\Models\UserVerify;
@@ -25,13 +26,12 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
 
-        dd($request);
         //check information
         $validate = $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'confirmed', 'min:6'],
-            'subdomain' => ['required', 'unique:domain,name'],
+            'password' => ['required', 'min:6'],
+            'subdomain' => ['required', 'unique:domains,name'],
         ]);
 
         //create user
@@ -41,8 +41,12 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $domain = DomainController();
-        $domain->create($request->subdomain);
+        $domain = new DomainController();
+        $domain->store($request);
+
+        // $domain = new Domain;
+        // $domain->name = $request->subdomain;
+        // $domain->save();
 
         $token = Str::random(64);
         UserVerify::create([

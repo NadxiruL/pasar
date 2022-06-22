@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
+use App\Models\Domain;
 use Illuminate\Http\Request;
 
 class DomainController extends Controller
@@ -22,11 +23,9 @@ class DomainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $domain = Domain::create([
-            'name' => $request->subdomain,
-        ]);
+
     }
 
     /**
@@ -37,7 +36,11 @@ class DomainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $domain = Domain::create([
+            'name' => $request->subdomain,
+            'user_id' => 10,
+        ]);
+
     }
 
     /**

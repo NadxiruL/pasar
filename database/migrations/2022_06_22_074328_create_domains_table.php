@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('domains', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreginIdFor(User::class);
+            $table->foreignIdFor(User::class)->nullable();
             $table->timestamps();
         });
     }
