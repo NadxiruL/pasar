@@ -1,35 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Storefront;
+namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cart;
-use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class StoreFrontController extends Controller
+class DomainController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
-        $carts = Cart::select('product_id')
-            ->where('user_id', Auth::user()->id ?? '')
-            ->count();
-
-        $products = Product::where('user_id', Auth::user()->id ?? '')
-            ->orderBy('id', 'ASC')
-            ->paginate(9);
-
-        return view('storefront.index', [
-            'products' => $products,
-            'carts' => $carts,
-        ]);
+        //
     }
 
     /**
@@ -37,9 +22,11 @@ class StoreFrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('storefront.create');
+        $domain = Domain::create([
+            'name' => $request->subdomain,
+        ]);
     }
 
     /**

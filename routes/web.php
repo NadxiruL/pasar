@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Storefront\CartController;
-use App\Http\Controllers\Storefront\StoreFrontController;
+use App\Http\Controllers\Store\DomainController;
 use App\Http\Controllers\Store\StoreController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,54 +40,14 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('/', [LoginController::class, 'logout'])->name('logout');
 Route::get('account/verify/{token}', [LoginController::class, 'verifyAccount'])->name('account.verify');
 
-//});
-
-//Users
-// Route::group(['prefix' => '/'], function () {
-//     // Route::resource('user', UserController::class);
-// });
-
-//Plans
-// Route::group(['prefix' => '/'], function () {
-//     Route::get('plans', function () {
-//         return view('plans.packages');
-//     });
-// });
-
-//Orders
-// Route::group(['prefix' => '/'], function () {
-//     Route::resource('order', OrderController::class)->;
-// });
-
-//Products
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
+    //product
     Route::resource('product', ProductController::class);
-});
-
-//Category
-Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
+    //category
     Route::resource('category', CategoryController::class);
-});
-
-//Store
-Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
+    //store
     Route::resource('store', StoreController::class);
 });
 
-//StoreFront
-// Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
-Route::resource('/kedai', StoreFrontController::class);
 Route::post('/kedai', [CartController::class, 'addtoCart'])->name('cart.store');
-// });
-
-// Route::get('/kedaiz', [CartController::class, 'cart'])->name('cart.cart');
-
-// Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
-
-// });
-
-//Customers
-
-//Inventory
-
-//Setting
+Route::resource('/', DomainController::class);

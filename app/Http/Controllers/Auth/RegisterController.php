@@ -25,12 +25,13 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
 
+        dd($request);
         //check information
         $validate = $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'confirmed', 'min:6'],
-            'password_confirmation' => ['required', 'min:6'],
+            'subdomain' => ['required', 'unique:domain,name'],
         ]);
 
         //create user
@@ -39,6 +40,9 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $domain = DomainController();
+        $domain->create($request->subdomain);
 
         $token = Str::random(64);
         UserVerify::create([
