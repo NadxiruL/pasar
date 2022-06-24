@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Store;
 use App\Http\Controllers\Controller;
 use App\Models\Domain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DomainController extends Controller
 {
@@ -13,9 +14,17 @@ class DomainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($subdomain)
     {
-        //
+
+        $domains = Domain::select('user_id', Auth::user()->id)
+            ->where('subdomain', $subdomain);
+
+        //can use whereSubdomain($subdomain);
+
+        return view([
+            'domains' => $domains,
+        ]);
     }
 
     /**
@@ -37,8 +46,8 @@ class DomainController extends Controller
     public function store(Request $request)
     {
         $domain = Domain::create([
-            'name' => $request->subdomain,
-            'user_id' => 10,
+            'subdomain' => $request->subdomain,
+            'user_id' => Auth::user()->id,
         ]);
 
     }

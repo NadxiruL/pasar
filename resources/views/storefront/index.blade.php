@@ -157,7 +157,9 @@
                         {{-- @foreach ($carts as $cart) --}}
 
                         <tr>
-                            <td>{{ $carts->price }}</td>
+                            <td>{{ $carts }}</td>
+                            <td></td>
+
 
                         </tr>
                         {{-- @endforeach --}}

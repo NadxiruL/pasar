@@ -31,7 +31,7 @@ class RegisterController extends Controller
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'min:6'],
-            'subdomain' => ['required', 'unique:domains,name'],
+            'subdomain' => ['required', 'unique:domains,subdomain'],
         ]);
 
         //create user
