@@ -47,7 +47,7 @@ class DomainController extends Controller
     {
         $domain = Domain::create([
             'subdomain' => $request->subdomain,
-            'user_id' => Auth::user()->id,
+            // 'user_id' => Auth::user()->id,
         ]);
 
     }

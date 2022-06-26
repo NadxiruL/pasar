@@ -18,9 +18,8 @@ class StoreFrontController extends Controller
     public function index(Request $request)
     {
 
-        $carts = Cart::select('product_id')
-            ->where('user_id', Auth::user()->id ?? '')
-            ->count();
+        $carts = Cart::
+            where('user_id', Auth::user()->id ?? '')->get();
 
         $products = Product::where('user_id', Auth::user()->id ?? '')
             ->orderBy('id', 'ASC')

@@ -149,20 +149,28 @@
                     <thead>
                         <tr>
                             <th>Product</th>
+                            <th>Price </th>
                             <th>Quantity </th>
+
                         </tr>
                     </thead>
 
                     <tbody>
-                        {{-- @foreach ($carts as $cart) --}}
+                        <form action="" method="post">
+                            @csrf
+                            @foreach ($carts as $cart)
 
-                        <tr>
-                            <td>{{ $carts }}</td>
-                            <td></td>
+                            <tr>
+                                <td> {{ $cart->quantity ?? ''}}</td>
+                                <td>{{ $cart->price ?? ''}}</td>
+                                <td><input type="number" name="quantity"></td>
 
 
-                        </tr>
-                        {{-- @endforeach --}}
+                            </tr>
+                            @endforeach
+                            <button style="float: right;">Checkout</button>
+
+                        </form>
 
                     </tbody>
                 </table>

@@ -31,7 +31,7 @@ class CartController extends Controller
             ]);
         } else {
             //not authenticated simpan dalam session
-            $addtocart = $request->session()->put($request->product_id);
+            //  $addtocart = $request->session()->put($request->product_id);
 
         }
 
