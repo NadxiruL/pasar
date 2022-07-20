@@ -48,7 +48,7 @@
 
                                     <input type="hidden" name="product_price" value="{{$product->price }}">
 
-                                    <input class="col-sm-4" type="number" name="quantity" {{ $product->quantity }}>
+                                    <input class="col-sm-4" type="number" name="quantity" value="1">
 
                                     <div style="display: flex;">
                                         <button class="btn btn-primary">Add to Cart</button>
@@ -156,7 +156,8 @@
                     </thead>
 
                     <tbody>
-                        <form action="" method="post">
+                        <form action="{{ route('purchase.store') }}" method="post">
+
                             @csrf
                             @foreach ($carts as $cart)
 

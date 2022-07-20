@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Storefront\CartController;
+use App\Http\Controllers\Storefront\PurchaseController;
 use App\Http\Controllers\Storefront\StoreFrontController;
 use App\Http\Controllers\Store\DomainController;
 use App\Http\Controllers\Store\StoreController;
@@ -45,6 +46,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
 Route::group(['prefix' => '', 'middleware' => 'auth'], function () {
     Route::resource('/kedai', StoreFrontController::class);
     Route::post('/kedai', [CartController::class, 'addtoCart'])->name('cart.store');
+    Route::post('/kedai/beli', [PurchaseController::class, 'purchase'])->name('purchase.store');
 });
 
 Route::domain('{subdomain}.' . config('app.short_url'))->group(function () {

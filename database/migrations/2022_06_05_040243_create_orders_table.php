@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class);
+            $table->string('payment_type');
+            $table->string('payment_status');
+            $table->double('grand_total');
             $table->timestamps();
         });
     }

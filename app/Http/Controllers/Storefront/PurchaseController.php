@@ -9,10 +9,11 @@ class PurchaseController extends Controller
 {
     public function purchase(Request $request)
     {
-        // $purchase = Purchase::create([
-        //     'name' => $request->name,
+        // $order = Order::create([
+        //
         //     'price' => $request->price,
         //     'quantitiy' => $request->quantity,
         // ]);
+
     }
 }
