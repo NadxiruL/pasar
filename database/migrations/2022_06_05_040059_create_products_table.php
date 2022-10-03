@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\ProductStock;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string('product_type');
             $table->foreignIdFor(Category::class);
             $table->foreignIdFor(User::class);
+            $table->foreignIdFor(ProductStock::class)->nullable();
             $table->timestamps();
         });
     }

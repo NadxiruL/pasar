@@ -25,13 +25,13 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <span class="hide-menu">Customers</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('category.create') }}" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('category.index') }}" aria-expanded="false">
                         <i class="fa fa-cube" aria-hidden="true"></i>
                         <span class="hide-menu">Category</span>
                     </a>

@@ -24,6 +24,7 @@ class CartController extends Controller
 
         if (Auth::user()->id) {
             $addtocart = Cart::create([
+                'name' => $request->product_name,
                 'product_id' => $request->product_id,
                 'user_id' => Auth::user()->id,
                 'price' => $request->product_price,

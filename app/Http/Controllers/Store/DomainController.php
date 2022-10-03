@@ -17,6 +17,8 @@ class DomainController extends Controller
     public function index($subdomain)
     {
 
+
+
         $domains = Domain::select('user_id', Auth::user()->id)
             ->where('subdomain', $subdomain);
 

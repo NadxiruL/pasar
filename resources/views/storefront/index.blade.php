@@ -30,9 +30,9 @@
 
     <div class="container bg-light col-sm-6 mt-4 rounded">
 
-        <div class="row p-4">
+        <div class="row p-3">
             @foreach ($products as $product)
-            <div class="col-md-3 p-3 ">
+            <div class="col-md-4 p-2 ">
 
                 <div>
                     <div class="card mt-4 mb-3 p-3" style="width: 14rem;">
@@ -48,10 +48,13 @@
 
                                     <input type="hidden" name="product_price" value="{{$product->price }}">
 
+                                    <input type="hidden" name="product_name" value="{{$product->name }}">
+
+
                                     <input class="col-sm-4" type="number" name="quantity" value="1">
 
                                     <div style="display: flex;">
-                                        <button class="btn btn-primary">Add to Cart</button>
+                                        <button class="btn btn-primary mt-2">Add to Cart</button>
                                     </div>
                                 </form>
                             </div>
@@ -149,8 +152,9 @@
                     <thead>
                         <tr>
                             <th>Product</th>
+                            <th>Quantity</th>
                             <th>Price </th>
-                            <th>Quantity </th>
+
 
                         </tr>
                     </thead>
@@ -162,9 +166,11 @@
                             @foreach ($carts as $cart)
 
                             <tr>
+                                <td> {{ $cart->name ?? ''}}</td>
+
                                 <td> {{ $cart->quantity ?? ''}}</td>
                                 <td>{{ $cart->price ?? ''}}</td>
-                                <td><input type="number" name="quantity"></td>
+
 
 
                             </tr>

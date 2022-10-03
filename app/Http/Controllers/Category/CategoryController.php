@@ -15,6 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
+
+        return view('categories.index', [
+            'categories' => $categories,
+        ]);
 
     }
 
@@ -95,6 +100,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        return redirect()->route('category.index')->with('success', 'category delete successfully');
+
     }
 }
