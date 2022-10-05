@@ -38,7 +38,12 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->stock->first()->quantity }}</td>
                                 <td>
-                                    <button class="btn btn-secondary">Edit</button>
+
+                                    <a class="btn btn-secondary" href="{{ route('product.edit' , $product->id) }}">
+                                        Edit
+                                    </a>
+
+
 
                                     <form action="{{route('product.destroy', $product->id)}}" method="post">
                                         @csrf @method('delete')

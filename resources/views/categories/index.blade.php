@@ -41,7 +41,11 @@
                                 <td>
                                     <button class="btn btn-secondary">Edit</button>
 
-                                    <button class="btn btn-danger">Delete</button>
+                                    <form action="{{ route('category.destroy' , $category->id) }}" method="post">
+                                        @csrf @method('delete')
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+
 
                                 </td>
 

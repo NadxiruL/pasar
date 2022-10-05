@@ -113,7 +113,14 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+
+        $categories = Category::all();
+
+        return view('products.manage', [
+            'product' => $product,
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -125,7 +132,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $product = Product::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->with('success', 'product updated!');
     }
 
     /**

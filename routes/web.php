@@ -9,6 +9,7 @@ use App\Http\Controllers\Storefront\PurchaseController;
 use App\Http\Controllers\Storefront\StoreFrontController;
 use App\Http\Controllers\Store\DomainController;
 use App\Http\Controllers\Store\StoreController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
