@@ -163,18 +163,23 @@
                         <form action="{{ route('purchase.store') }}" method="post">
 
                             @csrf
-                            @foreach ($carts as $cart)
+
+                            {{ session()->get('product_name'); }}
+                            {{ session()->get('product_price'); }}
+
+
+                            {{-- @foreach ($carts as $cart)
 
                             <tr>
                                 <td> {{ $cart->name ?? ''}}</td>
 
-                                <td> {{ $cart->quantity ?? ''}}</td>
-                                <td>{{ $cart->price ?? ''}}</td>
+                            <td> {{ $cart->quantity ?? ''}}</td>
+                            <td>{{ $cart->price ?? ''}}</td>
 
 
 
                             </tr>
-                            @endforeach
+                            @endforeach --}}
                             <button style="float: right;">Checkout</button>
 
                         </form>

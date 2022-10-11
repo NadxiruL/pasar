@@ -46,7 +46,7 @@
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Stock</label>
                             <div class="col-sm-4 border-bottom p-0">
-                                <input type="text" name="stock" class="form-control" value="{{ $product->stock[0]->quantity }}">
+                                <input type="text" name="stock" class="form-control" value="{{ $product->stock->quantity }}">
 
                             </div>
                         </div>

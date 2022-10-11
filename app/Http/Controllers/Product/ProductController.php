@@ -133,11 +133,19 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
 
-        $product = Product::create([
-            'name' => $request->name,
-        ]);
+        // dd($request->all());
 
-        return redirect()->with('success', 'product updated!');
+        $product = Product::find($id);
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        // $product->stock->quantity = $request->stock;
+        $product->save();
+        $product->stock->update([
+            'quantity' => $request->stock,
+        ]);
+        return redirect()->route('product.index')->with('success', 'product updated!');
     }
 
     /**
@@ -151,6 +159,7 @@ class ProductController extends Controller
 
         $product = Product::find($id);
         $product->delete();
+
         // $product->save();
 
         return redirect()->route('product.index')->with('success', 'product deleted successfully');

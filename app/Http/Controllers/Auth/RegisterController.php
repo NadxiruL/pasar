@@ -54,7 +54,9 @@ class RegisterController extends Controller
             'token' => $token,
         ]);
 
-        EmailVerifyJob::dispatch(new EmailVerifyJob($token));
+        $request = ['email' => $request->email, 'token' => $token];
+        //  dispatch(new EmailVerifyJob($token, $request));
+        EmailVerifyJob::dispatch($request);
 
         if ($user) {
             return back()->with('success', 'User registered successfully!');
